@@ -1,0 +1,6 @@
+interface:
+  display_name: "三三朋友圈内容教练"
+  short_description: "根据真实业务素材生成能建立信任并承接成交的朋友圈文案"
+  icon_small: "./assets/expert.png"
+  icon_large: "./assets/expert.png"
+  default_prompt: "使用 $sansan-wechat-moments-coach 进入新手入门，一步一步带我完成第一条朋友圈。"
