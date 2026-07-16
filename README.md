@@ -1,17 +1,16 @@
 # sansanskill
 
-> 面向已有真实业务或正在验证首单的创业者的中文 AI 商业 Skills 系统。把商业诊断、AI 业务落地和朋友圈内容问题交给 Agent，获得清晰判断与可以立即执行的下一步。
+> 面向已有真实业务或正在验证首单的创业者的中文 AI Skills 工具箱。把商业诊断、AI 业务落地和朋友圈内容问题交给 Agent，获得清晰判断和可以立即执行的下一步。
 
 ![version](https://img.shields.io/badge/version-0.4.0-222222)
 ![Skills](https://img.shields.io/badge/Skills-4-222222)
-![朋友圈案例](https://img.shields.io/badge/朋友圈案例-40-222222)
-![商业原子](https://img.shields.io/badge/商业原子-4-222222)
+![license](https://img.shields.io/badge/license-CC_BY--NC_4.0-222222)
 
 **支持：豆包、WorkBuddy、Claude Code、Codex，以及其他支持标准 Skills 的 Agent。**
 
-sansanskill 由三三创建。当前系统把 40 个原创朋友圈案例、4 个可追溯商业原子和三三的业务判断规则，沉淀为 4 个可以直接调用的 Skills。
+sansanskill 由 [三三](https://github.com/sansan19900801) 创建。仓库已将 40 个原创朋友圈案例和 4 个可追溯商业原子整理为 44 条结构化知识原子，并把相关方法与三三的业务判断规则沉淀为 4 个可以直接调用的 Skills。
 
-[快速开始](#快速开始) · [解决什么问题](#解决什么问题) · [能力一览](#能力一览) · [安装](#安装) · [更新](#更新) · [工作方式](#工作方式) · [知识库](#知识库)
+[快速开始](#快速开始) · [安装](#安装) · [能力一览](#能力一览) · [知识库](#知识库) · [更新日志](https://github.com/sansan19900801/sansanskill/releases)
 
 ## 三三 AI 商业动态路由
 
