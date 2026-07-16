@@ -211,28 +211,6 @@ dist/                           本地构建的发布包，不提交 Git
 - 公开发布衍生作品时，请注明来源。
 - 商业用途需要单独授权，请联系作者。
 
-## 维护与更新
-
-新增朋友圈案例时，优先运行：
-
-```bash
-python3 tools/add-case.py --type 反馈圈 --title "案例标题"
-```
-
-新增商业原子时，优先运行：
-
-```bash
-python3 tools/add-business-atom.py --type principle --title "原子标题"
-```
-
-填写真源文件后运行：
-
-```bash
-./tools/build-release.sh
-```
-
-构建流程会重新生成原子库和知识包，检查数量、编号、来源、权利状态和路由，校验四个已上线 Skill，并生成独立安装包与系统整包。
-
 ## 开源与使用边界
 
 - 免费 Skill 负责标准化、可重复、可自助完成的任务；
