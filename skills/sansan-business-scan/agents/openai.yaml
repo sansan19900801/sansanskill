@@ -1,0 +1,4 @@
+interface:
+  display_name: "三三商业系统扫描"
+  short_description: "扫描八个业务系统并找出最大瓶颈、能力缺口和优先动作"
+  default_prompt: "Use $sansan-business-scan to scan my current business and identify the highest-priority bottleneck."

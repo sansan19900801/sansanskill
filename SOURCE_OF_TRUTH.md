@@ -13,6 +13,10 @@ sources/朋友圈案例原文/
 Skill 工作流、边界和路由的人工维护入口只有：
 
 ```text
+skills/sansan-business-router/SKILL.md
+skills/sansan-business-router/references/
+skills/sansan-business-scan/SKILL.md
+skills/sansan-business-scan/references/
 skills/sansan-wechat-moments-coach/SKILL.md
 skills/sansan-wechat-moments-coach/references/
 ```
@@ -59,5 +63,4 @@ dist/*.zip
 - `external-reference`：外部参考，只限内部使用；
 - `unknown`：尚未核实。
 
-当前初始化统一标记为 `unknown`。在公开分发包含完整案例的 Skill 前，应完成权利确认。历史产品、价格和结果数据即使真实，也只能作为历史案例，不能自动当成当前产品口径。
-
+当前40个案例已经由三三确认为原创并允许公开发布，统一标记为 `owned` 与 `publishable: true`。新增案例仍需逐条确认权利状态。历史产品、价格和结果数据即使真实，也只能作为历史案例，不能自动当成当前产品口径。

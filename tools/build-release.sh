@@ -2,16 +2,23 @@
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
-SKILL_NAME="sansan-wechat-moments-coach"
+SKILL_NAMES=(
+  "sansan-business-router"
+  "sansan-business-scan"
+  "sansan-wechat-moments-coach"
+)
 
 python3 "$ROOT/tools/build-atom-library.py"
 python3 "$ROOT/tools/build-skill-packs.py"
 python3 "$ROOT/tools/validate-library.py"
+python3 "$ROOT/tools/validate-skill-system.py"
 
 VALIDATOR="${CODEX_HOME:-$HOME/.codex}/skills/.system/skill-creator/scripts/quick_validate.py"
 if [[ -f "$VALIDATOR" ]]; then
   if python3 -c "import yaml" >/dev/null 2>&1; then
-    python3 "$VALIDATOR" "$ROOT/skills/$SKILL_NAME"
+    for skill_name in "${SKILL_NAMES[@]}"; do
+      python3 "$VALIDATOR" "$ROOT/skills/$skill_name"
+    done
   else
     echo "提示：当前Python缺少PyYAML，已完成知识库校验，但跳过官方Skill结构校验。"
     echo "如需启用，请运行：python3 -m pip install PyYAML"
@@ -21,10 +28,18 @@ else
 fi
 
 mkdir -p "$ROOT/dist"
-rm -f "$ROOT/dist/$SKILL_NAME.zip"
+for skill_name in "${SKILL_NAMES[@]}"; do
+  rm -f "$ROOT/dist/$skill_name.zip"
+  (
+    cd "$ROOT/skills"
+    zip -qr "$ROOT/dist/$skill_name.zip" "$skill_name" -x "*/.DS_Store" "*/__pycache__/*"
+  )
+done
+
+rm -f "$ROOT/dist/sansan-ai-business-skill-system.zip"
 (
   cd "$ROOT/skills"
-  zip -qr "$ROOT/dist/$SKILL_NAME.zip" "$SKILL_NAME" -x "*/.DS_Store" "*/__pycache__/*"
+  zip -qr "$ROOT/dist/sansan-ai-business-skill-system.zip" "${SKILL_NAMES[@]}" -x "*/.DS_Store" "*/__pycache__/*"
 )
 
-echo "构建完成：$ROOT/dist/$SKILL_NAME.zip"
+echo "构建完成：${#SKILL_NAMES[@]} 个独立Skill包 + 1个系统整包。"
