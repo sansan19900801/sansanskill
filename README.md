@@ -195,6 +195,22 @@ dist/                           本地构建的发布包，不提交 Git
 
 本 GitHub 仓库是三三 Skill 产品的唯一真源。Obsidian、Agent 安装目录和本地导出文件都不是这套 Skill 的真源。详细边界见 [SOURCE_OF_TRUTH.md](SOURCE_OF_TRUTH.md)。
 
+## 作者与支持
+
+作者：[@sansan19900801](https://github.com/sansan19900801)
+
+如需加入付费答疑群，可扫码或打开 [答疑群说明](docs/support.md)。
+
+<img src="assets/wechat-qr.jpg" alt="三三微信二维码" width="360">
+
+## 许可证
+
+本项目采用 [CC BY-NC 4.0](LICENSE) 许可证。
+
+- 个人使用、学习、研究与非商业项目可以直接使用。
+- 公开发布衍生作品时，请注明来源。
+- 商业用途需要单独授权，请联系作者。
+
 ## 维护与更新
 
 新增朋友圈案例时，优先运行：
