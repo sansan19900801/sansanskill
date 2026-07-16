@@ -1,0 +1,4 @@
+interface:
+  display_name: "三三商业诊断"
+  short_description: "问诊具体商业问题或体检八个系统，找出最大瓶颈与第一动作"
+  default_prompt: "使用 $sansan-business-diagnosis 判断我当前的商业问题是否成立，并找出第一优先约束。"

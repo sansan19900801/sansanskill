@@ -4,13 +4,15 @@ set -euo pipefail
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 SKILL_NAMES=(
   "sansan-business-router"
-  "sansan-business-scan"
+  "sansan-business-diagnosis"
   "sansan-wechat-moments-coach"
 )
 
 python3 "$ROOT/tools/build-atom-library.py"
 python3 "$ROOT/tools/build-skill-packs.py"
+python3 "$ROOT/tools/build-business-atoms.py"
 python3 "$ROOT/tools/validate-library.py"
+python3 "$ROOT/tools/validate-business-atoms.py"
 python3 "$ROOT/tools/validate-skill-system.py"
 
 VALIDATOR="${CODEX_HOME:-$HOME/.codex}/skills/.system/skill-creator/scripts/quick_validate.py"
@@ -28,6 +30,7 @@ else
 fi
 
 mkdir -p "$ROOT/dist"
+rm -f "$ROOT/dist/sansan-business-scan.zip"
 for skill_name in "${SKILL_NAMES[@]}"; do
   rm -f "$ROOT/dist/$skill_name.zip"
   (

@@ -12,6 +12,7 @@ ROOT = Path(__file__).resolve().parents[1]
 SKILLS = ROOT / "skills"
 REGISTRY = SKILLS / "sansan-business-router" / "references" / "route-registry.md"
 TESTS = ROOT / "tests" / "router-cases.md"
+DIAGNOSIS_TESTS = ROOT / "tests" / "diagnosis-cases.md"
 
 
 def main() -> int:
@@ -54,13 +55,36 @@ def main() -> int:
     if case_count < 30:
         errors.append(f"路由测试少于30条：{case_count}")
 
+    diagnosis_test_text = DIAGNOSIS_TESTS.read_text(encoding="utf-8") if DIAGNOSIS_TESTS.exists() else ""
+    diagnosis_case_count = len(re.findall(r"^\|\s*\d+\s*\|", diagnosis_test_text, re.M))
+    if diagnosis_case_count < 20:
+        errors.append(f"商业诊断测试少于20条：{diagnosis_case_count}")
+
+    diagnosis_dir = SKILLS / "sansan-business-diagnosis"
+    required_diagnosis_files = [
+        diagnosis_dir / "SKILL.md",
+        diagnosis_dir / "references" / "consultation-mode.md",
+        diagnosis_dir / "references" / "health-check-mode.md",
+        diagnosis_dir / "references" / "business-dimensions.md",
+        diagnosis_dir / "references" / "signal-tracking.md",
+        diagnosis_dir / "references" / "report-template.md",
+        diagnosis_dir / "references" / "atom-intake.md",
+        diagnosis_dir / "references" / "business-case-pack.md",
+    ]
+    for path in required_diagnosis_files:
+        if not path.exists():
+            errors.append(f"商业诊断缺少文件：{path.relative_to(ROOT)}")
+
     if errors:
         print("系统校验失败：")
         for error in errors:
             print(f"- {error}")
         return 1
 
-    print(f"系统校验通过：{len(names)}个Skill、{len(ready)}个ready专项、{case_count}条路由测试。")
+    print(
+        f"系统校验通过：{len(names)}个Skill、{len(ready)}个ready专项、"
+        f"{case_count}条路由测试、{diagnosis_case_count}条商业诊断测试。"
+    )
     return 0
 
 
