@@ -2,16 +2,16 @@
 
 > 面向已有真实业务或正在验证首单的创业者的中文 AI 商业 Skills 系统。把商业诊断、AI 业务落地和朋友圈内容问题交给 Agent，获得清晰判断与可以立即执行的下一步。
 
-![version](https://img.shields.io/badge/version-0.3.1-222222)
-![Skills](https://img.shields.io/badge/Skills-3-222222)
+![version](https://img.shields.io/badge/version-0.4.0-222222)
+![Skills](https://img.shields.io/badge/Skills-4-222222)
 ![朋友圈案例](https://img.shields.io/badge/朋友圈案例-40-222222)
 ![商业原子](https://img.shields.io/badge/商业原子-4-222222)
 
 **支持：豆包、WorkBuddy、Claude Code、Codex，以及其他支持标准 Skills 的 Agent。**
 
-sansanskill 由三三创建。当前系统把 40 个原创朋友圈案例、4 个可追溯商业原子和三三的业务判断规则，沉淀为 3 个可以直接调用的 Skills。
+sansanskill 由三三创建。当前系统把 40 个原创朋友圈案例、4 个可追溯商业原子和三三的业务判断规则，沉淀为 4 个可以直接调用的 Skills。
 
-[快速开始](#快速开始) · [解决什么问题](#解决什么问题) · [能力一览](#能力一览) · [安装](#安装) · [工作方式](#工作方式) · [知识资产](#知识资产) · [维护与更新](#维护与更新)
+[快速开始](#快速开始) · [解决什么问题](#解决什么问题) · [能力一览](#能力一览) · [安装](#安装) · [更新](#更新) · [工作方式](#工作方式) · [知识资产](#知识资产)
 
 ## 三三 AI 商业动态路由
 
@@ -25,10 +25,12 @@ flowchart LR
     C -->|不知道哪里有问题| E["商业体检<br/>找最大瓶颈"]
     C -->|观点、案例或复盘| F["商业原子收录<br/>沉淀可追溯资产"]
     C -->|朋友圈素材| G["朋友圈内容教练<br/>生成可发布文案"]
+    C -->|更新 sansanskill| K["系统更新器<br/>只同步官方仓库"]
     D --> H["一个明确结论<br/>一个 7 天动作"]
     E --> H
     F --> I["待入库原子<br/>来源与权利信息"]
     G --> J["成品文案<br/>配图与发布检查"]
+    K --> L["验证更新结果<br/>重新载入 Agent"]
 ```
 
 路由遵循两个原则：**每次只处理当前最关键的一步；下一步由真实结果和用户反馈决定。**
@@ -42,6 +44,7 @@ flowchart LR
 | 会使用 AI，但没有产生明显业务结果 | 判断问题出在商业标准、素材数据、业务流程还是 AI 使用方式 | `sansan-business-diagnosis` |
 | 想把真实观点、案例、诊断或业务复盘沉淀下来 | 补齐来源、权限、适用条件、反例边界和证据等级 | `sansan-business-diagnosis` |
 | 有客户反馈、收款、咨询、生活或业务观点素材 | 路由为反馈圈、收款圈、咨询圈、生活圈或三重天朋友圈 | `sansan-wechat-moments-coach` |
+| 想把 sansanskill 更新到最新版 | 只同步三三官方仓库，验证新入口并保护其他 Skill 与业务资料 | `sansan-update` |
 | 不知道应该用哪个 Skill | 直接描述最近正在推进的一件事，由总入口选择当前一步 | `/sansan` |
 
 ## 快速开始
@@ -67,6 +70,7 @@ flowchart LR
 | `sansan` | 唯一总入口；读取完整上下文，识别当前最关键任务，路由到已经上线的专项 Skill | 一个明确入口和当前下一步 |
 | `sansan-business-diagnosis` | 商业问诊、八系统体检、最大瓶颈诊断、AI 介入判断与商业原子收录 | 事实判断、瓶颈、能力缺口、7 天动作或待入库原子 |
 | `sansan-wechat-moments-coach` | 根据真实文字、截图和图片生成五类朋友圈 | 可发布文案、评论区、配图建议和真实性检查 |
+| `sansan-update` | 只同步三三官方仓库，清理作废入口并验证更新结果 | 已更新的官方 Skill 与真实验证结果 |
 
 ### 商业诊断覆盖的八个系统
 
@@ -125,12 +129,6 @@ npx -y skills add sansan19900801/sansanskill -l
 npx -y skills add sansan19900801/sansanskill -g --skill sansan-business-diagnosis -y
 ```
 
-更新三三的三个 Skill，不更新其他来源的 Skill：
-
-```bash
-npx -y skills update sansan sansan-business-diagnosis sansan-wechat-moments-coach -g -y
-```
-
 安装或更新后，重新打开当前 Agent，再输入：
 
 ```text
@@ -138,6 +136,16 @@ npx -y skills update sansan sansan-business-diagnosis sansan-wechat-moments-coac
 ```
 
 > 本仓库使用标准 `SKILL.md` 结构。能否读取本地文件、运行构建脚本或直接写入原子库，取决于具体 Agent 提供的权限。没有文件权限时，Skill 只会生成待入库内容，不会声称已经保存。
+
+## 更新
+
+已安装 sansanskill 时，直接对当前 Agent 说：
+
+```text
+更新 sansanskill
+```
+
+它会同步官方 sansanskill，不会修改你的 Obsidian、聊天记录、客户资料和其他来源的 Skill。版本变化见 [GitHub Releases](https://github.com/sansan19900801/sansanskill/releases)。
 
 ## 工作方式
 
@@ -220,7 +228,7 @@ python3 tools/add-business-atom.py --type principle --title "原子标题"
 ./tools/build-release.sh
 ```
 
-构建流程会重新生成原子库和知识包，检查数量、编号、来源、权利状态和路由，校验三个已上线 Skill，并生成独立安装包与系统整包。
+构建流程会重新生成原子库和知识包，检查数量、编号、来源、权利状态和路由，校验四个已上线 Skill，并生成独立安装包与系统整包。
 
 ## 开源与使用边界
 

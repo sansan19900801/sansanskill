@@ -75,6 +75,11 @@ def main() -> int:
         if not path.exists():
             errors.append(f"商业诊断缺少文件：{path.relative_to(ROOT)}")
 
+    updater_dir = SKILLS / "sansan-update"
+    for path in [updater_dir / "SKILL.md", updater_dir / "agents" / "openai.yaml"]:
+        if not path.exists():
+            errors.append(f"系统更新器缺少文件：{path.relative_to(ROOT)}")
+
     if errors:
         print("系统校验失败：")
         for error in errors:

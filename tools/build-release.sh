@@ -4,6 +4,7 @@ set -euo pipefail
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 SKILL_NAMES=(
   "sansan"
+  "sansan-update"
   "sansan-business-diagnosis"
   "sansan-wechat-moments-coach"
 )

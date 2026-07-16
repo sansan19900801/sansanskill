@@ -21,6 +21,7 @@ Skill 工作流、边界和路由的人工维护入口只有：
 ```text
 skills/sansan/SKILL.md
 skills/sansan/references/
+skills/sansan-update/SKILL.md
 skills/sansan-business-diagnosis/SKILL.md
 skills/sansan-business-diagnosis/references/
 skills/sansan-wechat-moments-coach/SKILL.md

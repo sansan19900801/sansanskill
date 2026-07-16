@@ -1,0 +1,4 @@
+interface:
+  display_name: "三三Skill更新器"
+  short_description: "只同步三三官方Skill并保护用户业务资料与其他已安装Skill"
+  default_prompt: "Use $sansan-update to update sansanskill from the official GitHub repository."
