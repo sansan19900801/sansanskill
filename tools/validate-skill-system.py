@@ -13,6 +13,7 @@ SKILLS = ROOT / "skills"
 REGISTRY = SKILLS / "sansan" / "references" / "route-registry.md"
 TESTS = ROOT / "tests" / "router-cases.md"
 DIAGNOSIS_TESTS = ROOT / "tests" / "diagnosis-cases.md"
+STATE_TESTS = ROOT / "tests" / "state-cases.md"
 
 
 def main() -> int:
@@ -80,6 +81,27 @@ def main() -> int:
         if not path.exists():
             errors.append(f"系统更新器缺少文件：{path.relative_to(ROOT)}")
 
+    state_test_text = STATE_TESTS.read_text(encoding="utf-8") if STATE_TESTS.exists() else ""
+    state_case_count = len(re.findall(r"^\|\s*\d+\s*\|", state_test_text, re.M))
+    if state_case_count < 15:
+        errors.append(f"本地状态测试少于15条：{state_case_count}")
+
+    required_state_files = [
+        SKILLS / "sansan-save" / "SKILL.md",
+        SKILLS / "sansan-save" / "agents" / "openai.yaml",
+        SKILLS / "sansan-save" / "references" / "record-schema.md",
+        SKILLS / "sansan-save" / "scripts" / "record_store.py",
+        SKILLS / "sansan-restore" / "SKILL.md",
+        SKILLS / "sansan-restore" / "agents" / "openai.yaml",
+        SKILLS / "sansan-restore" / "references" / "restore-view.md",
+        SKILLS / "sansan-report" / "SKILL.md",
+        SKILLS / "sansan-report" / "agents" / "openai.yaml",
+        SKILLS / "sansan-report" / "references" / "report-schema.md",
+    ]
+    for path in required_state_files:
+        if not path.exists():
+            errors.append(f"本地状态系统缺少文件：{path.relative_to(ROOT)}")
+
     if errors:
         print("系统校验失败：")
         for error in errors:
@@ -88,7 +110,8 @@ def main() -> int:
 
     print(
         f"系统校验通过：{len(names)}个Skill、{len(ready)}个ready专项、"
-        f"{case_count}条路由测试、{diagnosis_case_count}条商业诊断测试。"
+        f"{case_count}条路由测试、{diagnosis_case_count}条商业诊断测试、"
+        f"{state_case_count}条本地状态测试。"
     )
     return 0
 

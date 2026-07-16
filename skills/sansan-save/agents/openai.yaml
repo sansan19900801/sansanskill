@@ -1,0 +1,4 @@
+interface:
+  display_name: "三三商业诊断存档"
+  short_description: "保存已确认的商业诊断状态并供后续恢复与报告持续使用"
+  default_prompt: "使用 $sansan-save 保存这次已经确认的商业诊断。"

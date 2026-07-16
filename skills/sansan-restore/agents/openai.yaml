@@ -1,0 +1,4 @@
+interface:
+  display_name: "三三商业诊断恢复"
+  short_description: "读取本地商业诊断存档并核对实际经营变化后继续当前任务"
+  default_prompt: "使用 $sansan-restore 接着上次的商业诊断继续。"

@@ -1,0 +1,4 @@
+interface:
+  display_name: "三三商业诊断报告"
+  short_description: "把单次或多次诊断存档整理为可追溯的正式阶段商业报告"
+  default_prompt: "使用 $sansan-report 根据本地诊断存档生成阶段报告。"

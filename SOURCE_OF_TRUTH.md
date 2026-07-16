@@ -26,9 +26,18 @@ skills/sansan-business-diagnosis/SKILL.md
 skills/sansan-business-diagnosis/references/
 skills/sansan-wechat-moments-coach/SKILL.md
 skills/sansan-wechat-moments-coach/references/
+skills/sansan-save/SKILL.md
+skills/sansan-save/references/
+skills/sansan-save/scripts/
+skills/sansan-restore/SKILL.md
+skills/sansan-restore/references/
+skills/sansan-report/SKILL.md
+skills/sansan-report/references/
 ```
 
 Obsidian、Codex 安装目录和本地导出文件都不是这套 Skill 的真源。
+
+用户运行 Skill 后产生的诊断存档和报告只保存在本机 `~/.sansan/`，属于用户私有数据，不进入仓库，也不是公开 Skill 产品真源。
 
 其中 `skills/sansan-business-diagnosis/references/business-case-pack.md` 是生成副本，不属于人工维护入口。
 

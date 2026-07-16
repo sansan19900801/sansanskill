@@ -7,6 +7,9 @@ SKILL_NAMES=(
   "sansan-update"
   "sansan-business-diagnosis"
   "sansan-wechat-moments-coach"
+  "sansan-save"
+  "sansan-restore"
+  "sansan-report"
 )
 
 python3 "$ROOT/tools/build-atom-library.py"
@@ -15,6 +18,7 @@ python3 "$ROOT/tools/build-business-atoms.py"
 python3 "$ROOT/tools/validate-library.py"
 python3 "$ROOT/tools/validate-business-atoms.py"
 python3 "$ROOT/tools/validate-skill-system.py"
+python3 "$ROOT/tests/test_record_store.py"
 
 VALIDATOR="${CODEX_HOME:-$HOME/.codex}/skills/.system/skill-creator/scripts/quick_validate.py"
 if [[ -f "$VALIDATOR" ]]; then
