@@ -101,6 +101,13 @@ flowchart LR
 npx -y skills add sansan19900801/sansanskill -g --all
 ```
 
+如果你安装过 v0.3.0 或更早版本，先移除旧的长入口，再重新安装：
+
+```bash
+npx -y skills remove sansan-business-router -g -y
+npx -y skills add sansan19900801/sansanskill -g --all
+```
+
 - `-g`：安装到当前用户的全局 Skill 目录；
 - `--all`：安装仓库中的全部 Skill，并自动选择安装器能够识别的 Agent；
 - 需要本机已经安装 Node.js；
