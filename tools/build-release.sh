@@ -3,7 +3,7 @@ set -euo pipefail
 
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 SKILL_NAMES=(
-  "sansan-business-router"
+  "sansan"
   "sansan-business-diagnosis"
   "sansan-wechat-moments-coach"
 )
@@ -31,6 +31,7 @@ fi
 
 mkdir -p "$ROOT/dist"
 rm -f "$ROOT/dist/sansan-business-scan.zip"
+rm -f "$ROOT/dist/sansan-business-router.zip"
 for skill_name in "${SKILL_NAMES[@]}"; do
   rm -f "$ROOT/dist/$skill_name.zip"
   (

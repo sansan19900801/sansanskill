@@ -1,4 +1,4 @@
 interface:
   display_name: "三三AI商业总入口"
   short_description: "识别真实业务问题并路由到当前最合适的三三Skill"
-  default_prompt: "Use $sansan-business-router to identify my current business bottleneck and route me to the right next step."
+  default_prompt: "Use $sansan to identify my current business bottleneck and route me to the right next step."

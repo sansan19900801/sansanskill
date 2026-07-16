@@ -19,8 +19,8 @@ sources/商业原子原文/
 Skill 工作流、边界和路由的人工维护入口只有：
 
 ```text
-skills/sansan-business-router/SKILL.md
-skills/sansan-business-router/references/
+skills/sansan/SKILL.md
+skills/sansan/references/
 skills/sansan-business-diagnosis/SKILL.md
 skills/sansan-business-diagnosis/references/
 skills/sansan-wechat-moments-coach/SKILL.md

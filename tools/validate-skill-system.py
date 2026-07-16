@@ -10,7 +10,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 SKILLS = ROOT / "skills"
-REGISTRY = SKILLS / "sansan-business-router" / "references" / "route-registry.md"
+REGISTRY = SKILLS / "sansan" / "references" / "route-registry.md"
 TESTS = ROOT / "tests" / "router-cases.md"
 DIAGNOSIS_TESTS = ROOT / "tests" / "diagnosis-cases.md"
 
@@ -44,8 +44,8 @@ def main() -> int:
     if missing:
         errors.append(f"注册为ready但目录不存在：{sorted(missing)}")
 
-    router_text = (SKILLS / "sansan-business-router" / "SKILL.md").read_text(encoding="utf-8")
-    routed = set(re.findall(r"`(sansan-[a-z0-9-]+)`", router_text)) - {"sansan-business-router"}
+    router_text = (SKILLS / "sansan" / "SKILL.md").read_text(encoding="utf-8")
+    routed = set(re.findall(r"`(sansan(?:-[a-z0-9-]+)?)`", router_text)) - {"sansan"}
     undeclared = routed - ready
     if undeclared:
         errors.append(f"总入口引用了未ready能力：{sorted(undeclared)}")
