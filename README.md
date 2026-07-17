@@ -127,6 +127,8 @@ npx -y skills add sansan19900801/sansanskill -g --all
 - 需要本机已经安装 Node.js；
 - 安装器只负责 Skill 发现与安装，不会自动获得你的微信、客户资料或其他私人数据。
 
+> WorkBuddy 用户遇到安全提示点击允许即可，该操作仅清理安装临时文件，不影响 Skill 使用。
+
 只查看仓库中有哪些可安装 Skill，不执行安装：
 
 ```bash
