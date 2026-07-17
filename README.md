@@ -1,14 +1,14 @@
 # sansanskill
 
-> 面向已有真实业务或正在验证首单的创业者的中文 AI Skills 工具箱。把商业诊断、AI 业务落地和朋友圈内容问题交给 Agent，获得清晰判断和可以立即执行的下一步。
+> 面向已有真实业务或正在验证首单的创业者的中文 AI Skills 工具箱。把商业诊断、商业对标、AI 业务落地和朋友圈内容问题交给 Agent，获得清晰判断和可以立即执行的下一步。
 
-![version](https://img.shields.io/badge/version-0.5.0-222222)
-![Skills](https://img.shields.io/badge/Skills-7-222222)
+![version](https://img.shields.io/badge/version-0.6.0-222222)
+![Skills](https://img.shields.io/badge/Skills-8-222222)
 ![license](https://img.shields.io/badge/license-CC_BY--NC_4.0-222222)
 
 **支持：豆包、WorkBuddy、Claude Code、Codex，以及其他支持标准 Skills 的 Agent。**
 
-sansanskill 由 [三三](https://github.com/sansan19900801) 创建。仓库已将 40 个原创朋友圈案例和 4 个可追溯商业原子整理为 44 条结构化知识原子，并把相关方法与三三的业务判断规则沉淀为 7 个可以直接调用的 Skills。
+sansanskill 由 [三三](https://github.com/sansan19900801) 创建。仓库已将 40 个原创朋友圈案例和 4 个可追溯商业原子整理为 44 条结构化知识原子，并把相关方法与三三的业务判断规则沉淀为 8 个可以直接调用的 Skills。
 
 [快速开始](#快速开始) · [安装](#安装) · [能力一览](#能力一览) · [知识库与本地记录](#知识库与本地记录) · [更新日志](https://github.com/sansan19900801/sansanskill/releases)
 
@@ -22,12 +22,14 @@ flowchart LR
     B --> C{"只选择当前最关键的一步"}
     C -->|具体商业问题| D["商业问诊<br/>判断问题是否成立"]
     C -->|不知道哪里有问题| E["商业体检<br/>找最大瓶颈"]
+    C -->|找同行和参考机制| N["商业对标<br/>筛选可迁移机制"]
     C -->|观点、案例或复盘| F["商业原子收录<br/>沉淀可追溯资产"]
     C -->|朋友圈素材| G["朋友圈内容教练<br/>生成可发布文案"]
     C -->|保存、继续或出报告| M["本地记录系统<br/>存档 · 恢复 · 报告"]
     C -->|更新 sansanskill| K["系统更新器<br/>只同步官方仓库"]
     D --> H["一个明确结论<br/>一个 7 天动作"]
     E --> H
+    N --> O["学习边界<br/>7天最小验证"]
     F --> I["待入库原子<br/>来源与权利信息"]
     G --> J["成品文案<br/>配图与发布检查"]
     K --> L["验证更新结果<br/>重新载入 Agent"]
@@ -42,6 +44,7 @@ flowchart LR
 | 有产品、有业务，但不知道先解决获客、成交还是交付 | 扫描八个商业系统，找出一个最大瓶颈、能力缺口和 7 天动作 | `/sansan` |
 | 带着一个商业判断、选择或困惑，希望有人帮你判断 | 检查问题定义、隐藏前提、事实证据、因果链和推翻条件 | `sansan-business-diagnosis` |
 | 会使用 AI，但没有产生明显业务结果 | 判断问题出在商业标准、素材数据、业务流程还是 AI 使用方式 | `sansan-business-diagnosis` |
+| 已经知道要改善什么，想找同行、产品或商业模式参考 | 核验证据，拆解内容、产品、获客、成交、交付或商业模式中的可迁移机制 | `sansan-benchmark` |
 | 想把真实观点、案例、诊断或业务复盘沉淀下来 | 补齐来源、权限、适用条件、反例边界和证据等级 | `sansan-business-diagnosis` |
 | 有客户反馈、收款、咨询、生活或业务观点素材 | 路由为反馈圈、收款圈、咨询圈、生活圈或三重天朋友圈 | `sansan-wechat-moments-coach` |
 | 想把本次诊断留到下次继续 | 只在明确授权后保存本地诊断状态 | `sansan-save` |
@@ -64,7 +67,7 @@ flowchart LR
 /sansan 我已经有产品也成交过，但不知道现在应该先解决获客、成交还是交付。
 ```
 
-你只需要记住 `/sansan`。商业诊断、朋友圈内容、本地存档、状态恢复、阶段报告和系统更新都由总入口判断和路由。
+你只需要记住 `/sansan`。商业诊断、商业对标、朋友圈内容、本地存档、状态恢复、阶段报告和系统更新都由总入口判断和路由。
 
 ## 能力一览
 
@@ -72,6 +75,7 @@ flowchart LR
 | --- | --- | --- |
 | `sansan` | 唯一总入口；读取完整上下文，识别当前最关键任务，路由到已经上线的专项 Skill | 一个明确入口和当前下一步 |
 | `sansan-business-diagnosis` | 商业问诊、八系统体检、最大瓶颈诊断、AI 介入判断与商业原子收录 | 事实判断、瓶颈、能力缺口、7 天动作或待入库原子 |
+| `sansan-benchmark` | 内容、产品、获客、成交、交付和商业模式六类商业对标 | 证据状态、可迁移机制、不可照搬边界和7天验证动作 |
 | `sansan-wechat-moments-coach` | 根据真实文字、截图和图片生成五类朋友圈 | 可发布文案、评论区、配图建议和真实性检查 |
 | `sansan-save` | 明确授权后保存已确认的商业诊断状态 | 本地 Markdown 存档与可追溯下一步 |
 | `sansan-restore` | 恢复历史诊断并核对实际变化 | 上次状态、变化检查和继续入口 |
@@ -160,7 +164,7 @@ npx -y skills add sansan19900801/sansanskill -g --skill sansan-business-diagnosi
     ↓
 /sansan 读取上下文并选择当前入口
     ↓
-一个 Skill 完成诊断、内容或系统任务
+一个 Skill 完成诊断、对标、内容或系统任务
     ↓
 补充执行结果与反馈，再决定下一步
 ```

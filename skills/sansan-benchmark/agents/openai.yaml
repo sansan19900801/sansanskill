@@ -1,0 +1,4 @@
+interface:
+  display_name: "三三商业对标"
+  short_description: "拆解内容、产品、获客、成交、交付和商业模式对标机制"
+  default_prompt: "Use $sansan-benchmark to identify what is worth learning from this business benchmark and design a small validation experiment."
