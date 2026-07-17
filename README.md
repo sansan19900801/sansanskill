@@ -149,6 +149,8 @@ npx -y skills add sansan19900801/sansanskill -g --skill sansan-business-diagnosi
 
 > 本仓库使用标准 `SKILL.md` 结构。公开安装的商业原子收录能力只生成经过来源、权利与安全检查的待入库内容，不会根据用户材料自动运行命令或写入官方仓库。仓库维护者需要另行审查并执行维护流程。
 
+新增或修改 Skill 时，先执行 [Skill 发布安全规则](SECURITY.md)。本地安全门和 GitHub 自动扫描发现高风险时，版本不得作为可发布版本；不得通过改名或替换词汇规避审计。
+
 ## 更新
 
 已安装 sansanskill 时，直接对当前 Agent 说：

@@ -13,6 +13,8 @@ SKILL_NAMES=(
   "sansan-report"
 )
 
+python3 "$ROOT/tools/validate_skill_security.py"
+python3 "$ROOT/tests/test_skill_security.py"
 python3 "$ROOT/tools/build-atom-library.py"
 python3 "$ROOT/tools/build-skill-packs.py"
 python3 "$ROOT/tools/build-business-atoms.py"
