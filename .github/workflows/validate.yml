@@ -16,3 +16,17 @@ jobs:
         run: pip install -r requirements-dev.txt
       - name: Build and validate
         run: ./tools/build-release.sh
+
+  security:
+    permissions:
+      contents: read
+      security-events: write
+    uses: cisco-ai-defense/skill-scanner/.github/workflows/scan-skills.yml@605afdc5c7ea887c07e2afeb0fadc1452c07bfa7
+    with:
+      skill_path: skills
+      scan_mode: scan-all
+      policy: balanced
+      fail_on_severity: high
+      format: sarif
+      upload_sarif: true
+      use_behavioral: true
