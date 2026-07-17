@@ -14,6 +14,7 @@ REGISTRY = SKILLS / "sansan" / "references" / "route-registry.md"
 TESTS = ROOT / "tests" / "router-cases.md"
 DIAGNOSIS_TESTS = ROOT / "tests" / "diagnosis-cases.md"
 STATE_TESTS = ROOT / "tests" / "state-cases.md"
+BENCHMARK_TESTS = ROOT / "tests" / "benchmark-cases.md"
 
 
 def main() -> int:
@@ -102,6 +103,22 @@ def main() -> int:
         if not path.exists():
             errors.append(f"本地状态系统缺少文件：{path.relative_to(ROOT)}")
 
+    benchmark_test_text = BENCHMARK_TESTS.read_text(encoding="utf-8") if BENCHMARK_TESTS.exists() else ""
+    benchmark_case_count = len(re.findall(r"^\|\s*\d+\s*\|", benchmark_test_text, re.M))
+    if benchmark_case_count < 18:
+        errors.append(f"商业对标测试少于18条：{benchmark_case_count}")
+
+    benchmark_dir = SKILLS / "sansan-benchmark"
+    required_benchmark_files = [
+        benchmark_dir / "SKILL.md",
+        benchmark_dir / "agents" / "openai.yaml",
+        benchmark_dir / "references" / "benchmark-types.md",
+        benchmark_dir / "references" / "report-template.md",
+    ]
+    for path in required_benchmark_files:
+        if not path.exists():
+            errors.append(f"商业对标缺少文件：{path.relative_to(ROOT)}")
+
     if errors:
         print("系统校验失败：")
         for error in errors:
@@ -111,7 +128,7 @@ def main() -> int:
     print(
         f"系统校验通过：{len(names)}个Skill、{len(ready)}个ready专项、"
         f"{case_count}条路由测试、{diagnosis_case_count}条商业诊断测试、"
-        f"{state_case_count}条本地状态测试。"
+        f"{state_case_count}条本地状态测试、{benchmark_case_count}条商业对标测试。"
     )
     return 0
 
