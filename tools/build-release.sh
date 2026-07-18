@@ -6,6 +6,7 @@ SKILL_NAMES=(
   "sansan"
   "sansan-update"
   "sansan-business-diagnosis"
+  "sansan-good-question"
   "sansan-benchmark"
   "sansan-wechat-moments-coach"
   "sansan-save"

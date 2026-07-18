@@ -1,0 +1,4 @@
+interface:
+  display_name: "三三好问题"
+  short_description: "把模糊困惑整理成可推理、可质疑、可验证的问题说明书"
+  default_prompt: "Use $sansan-good-question to turn this fuzzy concern into a clear, testable problem brief."
