@@ -1,14 +1,14 @@
 # sansanskill
 
-> 面向已有真实业务或正在验证首单的创业者的中文 AI Skills 工具箱。把商业诊断、商业对标、AI 业务落地和朋友圈内容问题交给 Agent，获得清晰判断和可以立即执行的下一步。
+> 面向已有真实业务或正在验证首单的创业者的中文 AI Skills 工具箱。把商业诊断、商业对标、私聊成交、AI 业务落地和朋友圈内容问题交给 Agent，获得清晰判断和可以立即执行的下一步。
 
-![version](https://img.shields.io/badge/version-0.6.0-222222)
-![Skills](https://img.shields.io/badge/Skills-9-222222)
+![version](https://img.shields.io/badge/version-0.7.0-222222)
+![Skills](https://img.shields.io/badge/Skills-10-222222)
 ![license](https://img.shields.io/badge/license-CC_BY--NC_4.0-222222)
 
 **支持：豆包、WorkBuddy、Claude Code、Codex，以及其他支持标准 Skills 的 Agent。**
 
-sansanskill 由 [三三](https://github.com/sansan19900801) 创建。仓库已将 40 个原创朋友圈案例和 4 个可追溯商业原子整理为 44 条结构化知识原子，并把相关方法与三三的业务判断规则沉淀为 9 个可以直接调用的 Skills。
+sansanskill 由 [三三](https://github.com/sansan19900801) 创建。仓库已将 40 个原创朋友圈案例和 4 个可追溯商业原子整理为 44 条结构化知识原子，并把相关方法与三三的业务判断规则沉淀为 10 个可以直接调用的 Skills。
 
 [快速开始](#快速开始) · [安装](#安装) · [能力一览](#能力一览) · [知识库与本地记录](#知识库与本地记录) · [更新日志](https://github.com/sansan19900801/sansanskill/releases)
 
@@ -25,6 +25,7 @@ flowchart LR
     C -->|不知道哪里有问题| E["商业体检<br/>找最大瓶颈"]
     C -->|找同行和参考机制| N["商业对标<br/>筛选可迁移机制"]
     C -->|观点、案例或复盘| F["商业原子收录<br/>沉淀可追溯资产"]
+    C -->|客户原话、问价或顾虑| S["私聊成交操盘手<br/>判断状态并生成下一条回复"]
     C -->|朋友圈素材| G["朋友圈内容教练<br/>生成可发布文案"]
     C -->|保存、继续或出报告| M["本地记录系统<br/>存档 · 恢复 · 报告"]
     C -->|更新 sansanskill| K["系统更新器<br/>只同步官方仓库"]
@@ -32,6 +33,7 @@ flowchart LR
     E --> H
     N --> O["学习边界<br/>7天最小验证"]
     F --> I["待入库原子<br/>来源与权利信息"]
+    S --> R["可直接发送的回复<br/>等待客户真实反馈"]
     G --> J["成品文案<br/>配图与发布检查"]
     K --> L["验证更新结果<br/>重新载入 Agent"]
     P --> Q["明确对象、冲突、约束<br/>判断 Agent 可解性"]
@@ -50,6 +52,8 @@ flowchart LR
 | 已经知道要改善什么，想找同行、产品或商业模式参考 | 核验证据，拆解内容、产品、获客、成交、交付或商业模式中的可迁移机制 | `sansan-benchmark` |
 | 想把真实观点、案例、诊断或业务复盘沉淀下来 | 补齐来源、权限、适用条件、反例边界和证据等级 | `sansan-business-diagnosis` |
 | 有客户反馈、收款、咨询、生活或业务观点素材 | 路由为反馈圈、收款圈、咨询圈、生活圈或三重天朋友圈 | `sansan-wechat-moments-coach` |
+| 有具体客户原话、聊天记录或截图，不知道下一句怎么回 | 先回应客户当前问题，再按私聊成交八步曲与咨询六问判断下一步 | `sansan-private-sales-closer` |
+| 客户问价格、说贵、考虑一下、看后不回或明确想买 | 生成一条自然、真实、可直接发送的回复，不编造价格、案例和效果 | `sansan-private-sales-closer` |
 | 想把本次诊断留到下次继续 | 只在明确授权后保存本地诊断状态 | `sansan-save` |
 | 想接着上次诊断继续 | 恢复历史状态，先核对实际变化再决定下一步 | `sansan-restore` |
 | 想把一次或多次诊断整理成报告 | 生成内部完整版或脱敏分享版 Markdown 报告 | `sansan-report` |
@@ -80,6 +84,7 @@ flowchart LR
 | `sansan-good-question` | 把模糊困惑改写成可推理、可批评、可验证的问题说明书，并判断 Agent 可解性 | 问题清晰度、问题说明书和一个最小下一步 |
 | `sansan-business-diagnosis` | 商业问诊、八系统体检、最大瓶颈诊断、AI 介入判断与商业原子收录 | 事实判断、瓶颈、能力缺口、7 天动作或待入库原子 |
 | `sansan-benchmark` | 内容、产品、获客、成交、交付和商业模式六类商业对标 | 证据状态、可迁移机制、不可照搬边界和7天验证动作 |
+| `sansan-private-sales-closer` | 按私聊成交八步曲×咨询六问处理客户原话、问价、顾虑、跟进、复盘和流程定制 | 一条可直接发送的回复，或有证据的成交判断与下一步 |
 | `sansan-wechat-moments-coach` | 根据真实文字、截图和图片生成五类朋友圈 | 可发布文案、评论区、配图建议和真实性检查 |
 | `sansan-save` | 明确授权后保存已确认的商业诊断状态 | 本地 Markdown 存档与可追溯下一步 |
 | `sansan-restore` | 恢复历史诊断并核对实际变化 | 上次状态、变化检查和继续入口 |

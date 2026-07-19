@@ -8,6 +8,7 @@ SKILL_NAMES=(
   "sansan-business-diagnosis"
   "sansan-good-question"
   "sansan-benchmark"
+  "sansan-private-sales-closer"
   "sansan-wechat-moments-coach"
   "sansan-save"
   "sansan-restore"
