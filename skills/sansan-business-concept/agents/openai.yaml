@@ -1,0 +1,4 @@
+interface:
+  display_name: "三三商业概念澄清"
+  short_description: "把复杂商业概念讲成大白话，明确业务含义、边界和验证动作"
+  default_prompt: "使用 $sansan-business-concept 帮我把这个商业概念讲成大白话，并说明它在当前业务里的含义、边界和验证动作。"

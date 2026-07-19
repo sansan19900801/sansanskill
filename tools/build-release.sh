@@ -6,6 +6,7 @@ SKILL_NAMES=(
   "sansan"
   "sansan-update"
   "sansan-business-diagnosis"
+  "sansan-business-concept"
   "sansan-good-question"
   "sansan-benchmark"
   "sansan-private-sales-closer"
